@@ -1,0 +1,244 @@
+<!-- Evaluation, 16/06/2020 -->
+  <!DOCTYPE html>
+   <html lang="fr"> 
+    <head>
+       <meta charset="UTF-8" />
+       <title>Portfolio MOIO Paul</title>
+       <meta name="author" content="MOIO"/>
+       <meta name="keywords" content="Portfolio_MOIO-Paul"/>
+       <meta name="description" content="PortFolio"/>
+       <link rel="stylesheet" href="css/style.css">
+       <link  href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+       <link rel="shortcut icon" href="medias/logo-picto-nav.png">
+       <script src="Json/dataForImg.json"></script>
+       <script src="Json/dataForVd.json"></script>
+       <script src="Json/dataForMsc.json"></script>
+
+    </head>
+    <body>
+<!-- £ -->    
+      
+       <div id="bg-image"></div>
+        <header>
+           
+           <!-- ===================== -->
+           <!-- Navigation principale -->
+           <!-- ===================== -->
+           
+            <nav id="navEnTete" class="notScroll">
+              
+                <a id ="titleNav" href="#"><h1 id="nameNav">MOIO PAUL PORTFOLIO</h1>
+                <h2 id="secondTitleNav">Étudiant multimédia</h2></a>
+              
+<!-- £ -->               <ul id="produit">
+                   <li>
+                       <a href="Presentation-Realisation-Contact.html#presentation">Présentation</a>
+                   </li>
+                   <li>
+                       <div class="decoration"></div>
+                   </li>
+               </ul>
+               
+               <figure id="logo" class="notScroll">
+                    <a href="#"><img src="medias/logo.png" alt="Logo"/></a>
+                </figure>
+               
+<!-- £ -->               <ul id="utilisateur">
+                   <li>
+<!-- £ -->              <a href="javascript:void(0)" onclick="navEnTeteArticle();">Réalisations</a>
+                        <ul id="btnNavArticle" class="inactif">
+                                                
+                            <li>
+                                <a href="index.html#galerieImage" ><span>☽</span> Graphisme <span class="inactif">☾</span></a>
+                            </li>
+                            <li>
+                                <a href="index.html#galerieVideo" ><span>☽</span> AudioVisuel <span class="inactif">☾</span></a>
+                            </li>
+                            <li>
+                                <a href="index.html#galerieMusique"><span>☽</span> Musical <span class="inactif">☾</span></a>
+                            </li>
+<!-- £ -->              </ul>
+                   </li>
+                    <li>
+                       <div class="decoration"></div>
+                   </li>
+                   <li>
+                       <a href="Presentation-Realisation-Contact.html#contact">Contact</a>
+                   </li>
+                   
+               </ul>
+                
+            </nav>
+            
+            <figure id="banner">
+<!-- £ -->                <iframe id="bannerImg" src="https://www.youtube.com/embed/RHUGCOz4jJU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </figure>
+            
+        </header>
+        <main id="contain" class="cacher">
+           
+           <!-- ===================== -->
+           <!-- Navigation réseau     -->
+           <!-- ===================== -->
+           
+            <nav id="navReseau">
+               
+               <ul id="reseau">
+                   
+                   <li>
+                       <a href="https://www.facebook.com/paul.moio.98/" target="_blank"><img src="medias/Picto_Facebook.png" alt="Pictogramme_Facebook" /></a>
+                   </li>
+                   <li>
+                       <a href="https://twitter.com/Lucemtis_M" target="_blank"><img src="medias/Picto_Twitter.png" alt="Pictogramme_Twitter" /></a>
+                   </li>
+                   <li>
+                       <a href="https://www.instagram.com/lucemtis_mioky/?hl=fr" target="_blank"><img src="medias/Picto_Instagram.png" alt="Pictogramme_Instagram" /></a>
+                   </li>
+                   <li>
+                       <a href="https://www.youtube.com/channel/UCTwjLpTEz6wW8gou2sRqSiw?view_as=subscriber" target="_blank"><img src="medias/Picto_Youtube.png" alt="Pictogramme_Youtube" /></a>
+                   </li>
+                   <li>
+                       <a href="https://soundcloud.com/stunflix-myoki" target="_blank"><img src="medias/Picto_SoundCloud.png" alt="Pictogramme_SoundCloud" /></a>
+                   </li>
+                   <li>
+                       <a href="https://www.linkedin.com/in/paul-moio-8a6bb51a3/" target="_blank"><img src="medias/Picto_Linkedin.png" alt="Pictogramme_Linkedin" /></a>
+                   </li>
+               </ul>
+            </nav>
+            
+            <!-- ===================== -->
+            <!-- Section Galerie       -->
+            <!-- ===================== -->
+            
+            <section id="galerieImage">
+                <h1 class="sectionTitle"><span>☽</span>GRAPHISME<span>☾</span></h1>
+                <div id="image">
+                   
+                </div>
+
+                <script>
+                        function loadImg(){
+                                var myData = JSON.parse(dataImg);
+
+                                var divImg = document.getElementById("image");
+                                while (divImg.firstChild) {
+                                        divImg.removeChild(divImg.firstChild);
+                                }
+
+                                for(i = myData.length - 1; i > -1 ; i--){
+
+                                    
+                                        var fig = document.createElement("figure");
+                                        fig.setAttribute("onclick", "cpt =" + myData[i].cpt + "; Zoom();");
+
+                                        var div = document.createElement("div");
+                                        div.setAttribute("class", "imgOverlay h2Galerie");
+                                        div.innerHTML ="<span>☽ </span><h2>" + myData[i].title + "</h2><span> ☾</span>";
+                                        
+                                        var img = document.createElement("img");
+                                        img.setAttribute("class", "imgZoom " + myData[i].class);
+                                        img.setAttribute("src", "" + myData[i].src + "");
+                                        img.setAttribute("alt", myData[i].title);
+
+
+
+                                        divImg.appendChild(fig);
+                                        fig.appendChild(div);
+                                        fig.appendChild(img);
+
+                                }
+                        }
+                        loadImg();
+
+                </script>
+            </section>
+            <section id="galerieVideo">
+                <h1 class="sectionTitle"><span>☽</span>AUDIOVISUEL<span>☾</span></h1>
+                <div id="video">
+                   
+                </div>
+            </section>
+            <section id="galerieMusique">
+                <h1 class="sectionTitle"><span>☽</span>MUSICAL<span>☾</span></h1>
+                <div id="musique">
+                   
+                </div>
+
+                <script>
+                    function loadVdMsc(){
+                        for(j=0; j<2; j++){
+
+                            if(j == 0){
+                                var myData = JSON.parse(dataVd);
+
+                                var divVdMsc = document.getElementById("video");
+                                while (divVdMsc.firstChild) {
+                                    divVdMsc.removeChild(divVdMsc.firstChild);
+                                }
+                            }
+                            else{
+                                var myData = JSON.parse(dataMsc);
+
+                                var divVdMsc = document.getElementById("musique");
+                                while (divVdMsc.firstChild) {
+                                    divVdMsc.removeChild(divVdMsc.firstChild);
+                                }
+                            }
+
+                            console.log(j + "==========" + myData);
+
+                            for(i = myData.length - 1; i > -1 ; i--){
+
+                                    var article = document.createElement("article");
+
+                                    var fig = document.createElement("figure");
+
+                                    var iframe = document.createElement("iframe");
+                                    iframe.setAttribute("width", "100%");
+                                    iframe.setAttribute("height", "100%");
+                                    iframe.setAttribute("src", myData[i].src);
+                                    iframe.setAttribute("frameborder", "0");
+                                    iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture%");
+                                    iframe.setAttribute("allowfullscreen","true");
+
+                                    var div = document.createElement("div");
+                                    div.setAttribute("class","h2Galerie");
+                                    div.innerHTML ="<span>☽ </span><h2>" + myData[i].title + "</h2><span> ☾</span>";
+
+                                    divVdMsc.appendChild(article);
+                                    article.appendChild(fig);
+                                    fig.appendChild(iframe);
+                                    article.appendChild(div);
+                            }
+                        }
+                    }
+                    loadVdMsc();
+
+                </script>
+            </section>
+            <!-- ===================== -->
+            <!-- Zoom image            -->
+            <!-- ===================== -->
+            
+            <div id="bcgZoom" class="ferme">
+
+                <button onclick="ferme();" class="btnFerme">&times;</button>
+                <button onclick="avant();" id="avant">&#10148;</button>
+                <button onclick="arriere();" id="arriere">&#10148;</button>
+                <figure id="#figureZoomer" onclick="ferme();">
+                    <img id="imgZoomer"  src="#" alt="#">
+                </figure>
+                <p id="legende"></p>
+                
+            </div>
+            
+        </main>
+        
+        <footer>
+            <p>Cr&eacute;ateur : Paul MOIO</p>
+            <p><a href="medias/Portefolio-MOIO Paul.pdf" target="_blank">Voir mon portfolio PDF</a></p>
+        </footer>
+        
+        <script src="js/styleAccueil.js"></script>
+    </body>
+</html>
